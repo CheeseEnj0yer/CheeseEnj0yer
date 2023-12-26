@@ -1,0 +1,32 @@
+#Exchange rates:
+USD_TO_EUR = 0.85
+USD_TO_RS = 4.8
+USD_TO_JPY = 110.16
+
+# Add EUR, RS and JPY as a convertable currency.
+def convert_currency(amount, from_currency, to_currency):
+    if from_currency == "USD":
+        if to_currency == "EUR":
+            return amount * USD_TO_EUR
+        elif to_currency == "RS":
+            return amount * USD_TO_RS
+        elif to_currency == "JPY":
+            return amount * USD_TO_JPY
+        else:
+            print("Invalid target currency. Please choose EUR, RS, or JPY.")
+    elif from_currency == "EUR":
+        # Add similar elif conditions for other source currencies
+        print("Conversion from other currencies to EUR is not supported.")
+    else:
+        print("Invalid source currency. Please choose USD.")
+
+    return None
+
+amount = float(input("Enter the amount in USD: "))
+from_currency = input("Enter the source currency (USD): ").upper()
+to_currency = input("Enter the target currency (EUR,RS, JPY): ").upper()
+
+result = convert_currency(amount, from_currency, to_currency)
+
+if result is not None:
+    print(f"{amount} {from_currency} is equal to {result:.2f} {to_currency}")
